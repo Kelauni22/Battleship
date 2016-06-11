@@ -67,10 +67,10 @@ namespace Battleship
 
 
             //Write an if statement if person hits a spot, display new screen
+            bool[,] new_grid = new bool[10, 10];
             bool looping = true;
-
-            while (looping)
-            {
+            
+            while (looping) { 
                 Console.WriteLine("\n" + "Pick a number for coordinate 'x'");
                 string x_pick_string = Console.ReadLine();
                 int x_pick = Convert.ToInt16(x_pick_string);
@@ -83,7 +83,7 @@ namespace Battleship
                 if (base_grid[x_pick, y_pick] == false)
                 {
                     Console.Clear();
-                    bool[,] new_grid = new bool[10, 10];
+                    
                     new_grid[x_pick, y_pick] = true;
 
                     for (int x = 0; x < 10; x++)
@@ -107,11 +107,9 @@ namespace Battleship
 
                     }
 
-                    
+                                       
 
                 }
-
-                
 
                 else
                 {
