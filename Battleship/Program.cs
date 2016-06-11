@@ -21,26 +21,26 @@ namespace Battleship
             //00****00
             //Color[,] pixels = new Color[imageWidth, imageHeight];
             //for (int x = 0; x <= imageWidth; ++x)
-           // {
-           //     for (int y = 0; y <= imageHeight; ++y)
+            // {
+            //     for (int y = 0; y <= imageHeight; ++y)
             //    {
             //        pixels[x, y] = backgroundColor;
-           //     }
-           // }
+            //     }
+            // }
 
 
             //Make a battleship screen of spots that all equal true
 
-            bool[,] base_grid = new bool[10,10];
+            bool[,] base_grid = new bool[10, 10];
 
             for (int x = 0; x < 10; x++)
-           
+
             {
                 for (int y = 0; y < 10; y++)
                 {
                     base_grid[x, y] = true;
                     Console.Write("0");
-                              
+
 
                 }
 
@@ -49,27 +49,28 @@ namespace Battleship
             }
 
             //Make coordinates that equal false
-            
 
-           
-            
 
-                base_grid[0, 4] = false;
-                base_grid[0, 9] = false;
-                base_grid[2, 5] = false;
-                base_grid[3, 1] = false;
-                base_grid[4, 4] = false;
-                base_grid[8, 8] = false;
-                base_grid[7, 6] = false;
-                base_grid[2, 2] = false;
-                base_grid[5, 9] = false;
-                base_grid[9, 7] = false;
+
+
+
+            base_grid[0, 4] = false;
+            base_grid[0, 9] = false;
+            base_grid[2, 5] = false;
+            base_grid[3, 1] = false;
+            base_grid[4, 4] = false;
+            base_grid[8, 8] = false;
+            base_grid[7, 6] = false;
+            base_grid[2, 2] = false;
+            base_grid[5, 9] = false;
+            base_grid[9, 7] = false;
 
 
             //Write an if statement if person hits a spot, display new screen
             bool looping = true;
 
-            while (looping) { 
+            while (looping)
+            {
                 Console.WriteLine("\n" + "Pick a number for coordinate 'x'");
                 string x_pick_string = Console.ReadLine();
                 int x_pick = Convert.ToInt16(x_pick_string);
@@ -79,47 +80,53 @@ namespace Battleship
                 string y_pick_string = Console.ReadLine();
                 int y_pick = Convert.ToInt16(y_pick_string);
 
-            if (base_grid[x_pick, y_pick] == false)
-            {
-                Console.Clear();
-                bool[,] new_grid = new bool[10, 10];
-                new_grid[x_pick, y_pick] = true;
-
-                for (int x = 0; x < 10; x++)
-
+                if (base_grid[x_pick, y_pick] == false)
                 {
-                    for (int y = 0; y < 10; y++)
+                    Console.Clear();
+                    bool[,] new_grid = new bool[10, 10];
+                    new_grid[x_pick, y_pick] = true;
+
+                    for (int x = 0; x < 10; x++)
+
                     {
-                        if (new_grid[x, y] == true)
+                        for (int y = 0; y < 10; y++)
                         {
-                            Console.Write("*");
-                        }
-                        else
-                        {
-                            Console.Write("0");
+                            if (new_grid[x, y] == true)
+                            {
+                                Console.Write("*");
+                            }
+                            else
+                            {
+                                Console.Write("0");
+                            }
+
+                            
                         }
 
                         Console.Write("\n");
+
                     }
+
+                    
 
                 }
 
-            }
+                
 
-            else
-            {
-                Console.Write("\n" + "Sorry, you missed!");
-                Console.Write("Would you like to play again? yes or no?");
-                string answer = Console.ReadLine();
-                if (answer == "yes")
+                else
+                {
+                    Console.WriteLine("\n" + "Sorry, you missed!");
+                    Console.WriteLine("Would you like to play again? yes or no?");
+                    string answer = Console.ReadLine();
+                    if (answer == "yes")
                     {
                         looping = true;
                     }
-                else
+                    else
                     {
                         looping = false;
                     }
-            }
+                }
 
                 Console.ReadLine();
 
@@ -129,6 +136,7 @@ namespace Battleship
             //Keep looping until all spots have been hit
             //Say good game once false
 
-        
+
+        }
     }
 }
